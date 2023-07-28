@@ -19,7 +19,7 @@ class User(AbstractUser):
 class Skill(models.Model):
     user_id = models.ForeignKey('main.User', on_delete=models.CASCADE)
     title = models.CharField(max_length=128)
-    level = models.IntegerField()
+    level = models.PositiveIntegerField()
 
 
 class Service(models.Model):
