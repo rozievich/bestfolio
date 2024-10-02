@@ -2,6 +2,7 @@ from django.forms import ModelForm
 from django.contrib.auth.forms import UserCreationForm
 from .models import User, Skill, Service, Blog, Portfolio, PartnerComment, Statistic
 
+
 class SignUpForm(UserCreationForm):
     class Meta:
         model = User
@@ -11,7 +12,8 @@ class SignUpForm(UserCreationForm):
 class UpdateForm(ModelForm):
     class Meta:
         model = User
-        fields = ('first_name', 'last_name', 'image', 'phone', 'email', 'job', 'about_me', 'street', 'city', 'state', 'telegram', 'instagram', 'telegram_id')
+        fields = ('first_name', 'last_name', 'image', 'phone', 'email', 'job', 'about_me', 'address', 'telegram', 'instagram', 'telegram_id')
+
 
 class AddSkillForm(ModelForm):
     class Meta:

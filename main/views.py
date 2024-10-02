@@ -100,7 +100,7 @@ def updatefunc(request):
         if data.is_valid():
             data.save()
             return redirect('my-profile')
-    return render(request, 'update.html')
+    return render(request, 'update_profile.html')
 
 
 # Skill Views
