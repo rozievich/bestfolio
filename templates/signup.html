@@ -1,133 +1,163 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>DevFolio - SignUp</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.1/dist/css/bootstrap.min.css" rel="stylesheet"/>
-    <style type="text/css">
-      body {
-        margin-top: 20px;
-        background-color: #f2f3f8;
-      }
-      .card {
-        margin-bottom: 1.5rem;
-        box-shadow: 0 1px 15px 1px rgba(52, 40, 104, 0.08);
-      }
+<head>
+	<title>Register | BestFolio</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" type="image/png" href="{% static "images/icons/favicon.ico" %}"/>
+	<link rel="stylesheet" type="text/css" href="{% static "vendor/bootstrap/css/bootstrap.min.css" %}">
+	<link rel="stylesheet" type="text/css" href="{% static "fonts/font-awesome-4.7.0/css/font-awesome.min.css" %}">
+	<link rel="stylesheet" type="text/css" href="{% static "fonts/Linearicons-Free-v1.0.0/icon-font.min.css" %}">
+	<link rel="stylesheet" type="text/css" href="{% static "vendor/animate/animate.css" %}">
+	<link rel="stylesheet" type="text/css" href="{% static "vendor/css-hamburgers/hamburgers.min.css" %}">
+	<link rel="stylesheet" type="text/css" href="{% static "vendor/animsition/css/animsition.min.css" %}">
+	<link rel="stylesheet" type="text/css" href="{% static "vendor/select2/select2.min.css" %}">
+	<link rel="stylesheet" type="text/css" href="{% static "vendor/daterangepicker/daterangepicker.css" %}">
+	<link rel="stylesheet" type="text/css" href="{% static "css/util.css" %}">
+	<link rel="stylesheet" type="text/css" href="{% static "css/main.css" %}">
+</head>
+<body>
+	
+	<div class="limiter">
+		<div class="container-login100" style="background-image: url('{% static "images/bg-01.jpg" %}');">
+			<div class="wrap-login100 p-l-110 p-r-110 p-t-62 p-b-33">
+				<form class="login100-form validate-form flex-sb flex-w" method="POST" action="{% url 'register' %}">
+					{% csrf_token %}
+					<span class="login100-form-title p-b-53">
+						Register With
+					</span>
 
-      .card {
-        position: relative;
-        display: -ms-flexbox;
-        display: flex;
-        -ms-flex-direction: column;
-        flex-direction: column;
-        min-width: 0;
-        word-wrap: break-word;
-        background-color: #fff;
-        background-clip: border-box;
-        border: 1px solid #e5e9f2;
-        border-radius: 0.2rem;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container h-100">
-      <div class="row h-100">
-        <div class="col-sm-10 col-md-8 col-lg-6 mx-auto d-table h-100">
-          <div class="d-table-cell align-middle">
-            <div class="text-center mt-4">
-              <h1 class="h2">Get Started</h1>
-              <p class="lead">
-                Please register to use the site and create your own Portfolio site
-              </p>
-            </div>
-            <div class="card">
-              <div class="card-body">
-                <div class="m-sm-4">
-                  <form method="post" action="{% url 'register' %}" enctype="multipart/form-data">
-                    {% csrf_token %}
-                    <div class="form-group">
-                        <label>First Name</label>
-                        <input
-                          class="form-control form-control-lg"
-                          type="text"
-                          name="first_name"
-                          placeholder="Enter your first name"/>
-                    </div>
-                    <div class="form-group">
-                        <label>Last Name</label>
-                        <input
-                          class="form-control form-control-lg"
-                          type="text"
-                          name="last_name"
-                          placeholder="Enter your last name"/>
-                    </div>
-                    <div class="form-group">
-                      <label>Username</label>
-                      <input
-                        class="form-control form-control-lg"
-                        type="text"
-                        name="username"
-                        placeholder="Enter your name"/>
-                    </div>
-                    <div class="form-group">
-                        <label>Image</label>
-                        <input
-                          class="form-control form-control-lg"
-                          type="file"
-                          name="image"
-                          placeholder="Enter your Image"/>
-                    </div>
-                    <div class="form-group">
-                        <label>Phone</label>
-                        <input
-                          class="form-control form-control-lg"
-                          type="tel"
-                          name="phone"
-                          placeholder="Enter your phone number"/>
-                    </div>
-                    <div class="form-group">
-                      <label>Email</label>
-                      <input
-                        class="form-control form-control-lg"
-                        type="email"
-                        name="email"
-                        placeholder="Enter your email"/>
-                    </div>
-                    <div class="form-group">
-                      <label>Job</label>
-                      <input
-                        class="form-control form-control-lg"
-                        type="text"
-                        name="job"
-                        placeholder="Enter your job"/>
-                    </div>
-                    <div class="form-group">
-                      <label>Password</label>
-                      <input
-                        class="form-control form-control-lg"
-                        type="password"
-                        name="password1"
-                        placeholder="Enter password"/>
-                    </div>
-                    <div class="form-group">
-                      <label>Confirm password</label>
-                      <input class="form-control form-control-lg" type="password" name="password2"
-                             placeholder="Confirm your password">
-                    </div>
-                    <div class="text-center mt-3">
-                      <button type="submit" class="btn btn-lg btn-primary">Sign up</button>
-                    </div>
-                  </form>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.1/dist/js/bootstrap.bundle.min.js"></script>
-    <script type="text/javascript"></script>
-  </body>
+					<a href="#" class="btn-face m-b-20">
+						<i class="fa fa-facebook-official"></i>
+						Facebook
+					</a>
+
+					<a href="#" class="btn-google m-b-20">
+						<img src="{% static "images/icons/icon-google.png" %}" alt="GOOGLE">
+						Google
+					</a>
+					
+					<div class="p-t-31 p-b-9">
+						<span class="txt1">
+							First Name
+						</span>
+					</div>
+					<div class="wrap-input100 validate-input" data-validate = "First Name is required">
+						<input class="input100" type="text" name="first_name" >
+						<span class="focus-input100"></span>
+					</div>
+
+					<div class="p-t-31 p-b-9">
+						<span class="txt1">
+							Last Name
+						</span>
+					</div>
+					<div class="wrap-input100 validate-input" data-validate = "Last Name is required">
+						<input class="input100" type="text" name="last_name" >
+						<span class="focus-input100"></span>
+					</div>
+
+					<div class="p-t-31 p-b-9">
+						<span class="txt1">
+							Username
+						</span>
+					</div>
+					<div class="wrap-input100 validate-input" data-validate = "Username is required">
+						<input class="input100" type="text" name="username" >
+						<span class="focus-input100"></span>
+					</div>
+					
+					<div class="p-t-31 p-b-9">
+						<span class="txt1">
+							Image
+						</span>
+					</div>
+					<div class="wrap-input100 validate-input" data-validate = "Image is required">
+						<input class="input100" type="file" name="image" >
+						<span class="focus-input100"></span>
+					</div>
+
+					<div class="p-t-31 p-b-9">
+						<span class="txt1">
+							Phone
+						</span>
+					</div>
+					<div class="wrap-input100 validate-input" data-validate = "Phone is required">
+						<input class="input100" type="text" name="phone" >
+						<span class="focus-input100"></span>
+					</div>
+
+					<div class="p-t-31 p-b-9">
+						<span class="txt1">
+							Email
+						</span>
+					</div>
+					<div class="wrap-input100 validate-input" data-validate = "Email is required">
+						<input class="input100" type="email" name="email" >
+						<span class="focus-input100"></span>
+					</div>
+
+					<div class="p-t-31 p-b-9">
+						<span class="txt1">
+							Job
+						</span>
+					</div>
+					<div class="wrap-input100 validate-input" data-validate = "Job is required">
+						<input class="input100" type="text" name="job" >
+						<span class="focus-input100"></span>
+					</div>
+
+					<div class="p-t-13 p-b-9">
+						<span class="txt1">
+							Password
+						</span>
+					</div>
+					<div class="wrap-input100 validate-input" data-validate = "Password is required">
+						<input class="input100" type="password" name="password1" >
+						<span class="focus-input100"></span>
+					</div>
+
+					<div class="p-t-13 p-b-9">
+						<span class="txt1">
+							Confirm Password
+						</span>
+					</div>
+					<div class="wrap-input100 validate-input" data-validate = "Password is required">
+						<input class="input100" type="password" name="password2" >
+						<span class="focus-input100"></span>
+					</div>
+
+					<div class="container-login100-form-btn m-t-17">
+						<button class="login100-form-btn">
+							Sign Up
+						</button>
+					</div>
+
+					<div class="w-full text-center p-t-55">
+						<span class="txt2">
+							Do you have an account?
+						</span>
+
+						<a href="{% url 'login' %}" class="txt2 bo1">
+							Login now
+						</a>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<div id="dropDownSelect1"></div>
+
+	<script src="{% static "vendor/jquery/jquery-3.2.1.min.js" %}"></script>
+	<script src="{% static "vendor/animsition/js/animsition.min.js" %}"></script>
+	<script src="{% static "vendor/bootstrap/js/popper.js" %}"></script>
+	<script src="{% static "vendor/bootstrap/js/bootstrap.min.js" %}"></script>
+	<script src="{% static "vendor/select2/select2.min.js" %}"></script>
+	<script src="{% static "vendor/daterangepicker/moment.min.js" %}"></script>
+	<script src="{% static "vendor/daterangepicker/daterangepicker.js" %}"></script>
+	<script src="{% static "vendor/countdowntime/countdowntime.js" %}"></script>
+	<script src="{% static "js/main.js" %}"></script>
+
+</body>
 </html>

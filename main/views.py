@@ -11,13 +11,11 @@ from .models import User, Skill, Service, Blog, Comment, Portfolio, PartnerComme
 
 
 # HomePage View
-
 def homepagefunc(request):
     return render(request, 'main.html')
 
 
 # Account Views
-
 def signupfunc(request):
     if request.POST:
         data = SignUpForm(request.POST, files=request.FILES)
@@ -35,7 +33,7 @@ def loginfunc(request):
         if user:
             login(request, user)
             return redirect('my-profile')
-    return render(request, 'login_page.html')
+    return render(request, 'login.html')
 
 
 @login_required
@@ -47,8 +45,6 @@ def logoutfunc(request):
 
 
 # Profile Views
-
-
 @login_required
 def my_profile_func(request):
     statis = Statistic.objects.filter(user_id_id=request.user.id).first()
@@ -108,7 +104,6 @@ def updatefunc(request):
 
 
 # Skill Views
-
 @login_required
 def add_skillfunc(request):
     if request.POST:
@@ -145,7 +140,6 @@ def delete_skillfunc(request, pk):
 
 
 # Blog Views
-
 @login_required
 def add_blogfunc(request):
     if request.POST:
@@ -180,7 +174,6 @@ def delete_blogfunc(request, pk):
 
 
 # Service Views
-
 @login_required
 def add_servicefunc(request):
     if request.POST:
@@ -218,7 +211,6 @@ def delete_servicefunc(request, pk):
 
 
 # Add Statistic
-
 @login_required
 def add_statistic(request):
     post = Statistic.objects.filter(user_id_id=request.user.id).first()
@@ -239,7 +231,6 @@ def add_statistic(request):
 
 
 # Portfolio Views
-
 @login_required
 def add_portfoliofunc(request):
     if request.POST:
@@ -276,7 +267,6 @@ def delete_portfoliofunc(request, pk):
 
 
 # Partner Comments Views
-
 def partner_commentfunc(request, username):
     if request.user.username == username:
         return redirect('my-profile')
@@ -291,7 +281,6 @@ def partner_commentfunc(request, username):
 
 
 # Send Telegram Bot
-
 def send_message(telegram_id, message):
     try:
         url = f'https://api.telegram.org/bot5724774277:AAHSrShzOfVeUaAhTVoGpcRCveL1bh-drKo/sendmessage'
@@ -305,7 +294,6 @@ def send_message(telegram_id, message):
 
 
 # Content Views
-
 def blogfunc(request, pk):
     posts = Blog.objects.filter(pk=pk).first()
     usr = User.objects.filter(id=posts.user_id_id).first()
