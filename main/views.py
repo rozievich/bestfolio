@@ -12,22 +12,11 @@ from .models import User, Skill, Service, Blog, Comment, Portfolio, PartnerComme
 
 # HomePage View
 
-
 def homepagefunc(request):
-    if request.GET:
-        key = request.GET.get('q')
-        user = User.objects.filter(
-            Q(first_name__contains=key) |
-            Q(last_name__contains=key) |
-            Q(username__contains=key) |
-            Q(job__contains=key))
-        return render(request, 'main.html', {'users': user})
-    else:
-        return render(request, 'main.html')
+    return render(request, 'main.html')
 
 
 # Account Views
-
 
 def signupfunc(request):
     if request.POST:
@@ -46,7 +35,7 @@ def loginfunc(request):
         if user:
             login(request, user)
             return redirect('my-profile')
-    return render(request, 'login.html')
+    return render(request, 'login_page.html')
 
 
 @login_required
