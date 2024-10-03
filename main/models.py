@@ -5,7 +5,7 @@ from django.db.models import IntegerChoices
 
 class User(AbstractUser):
     phone = models.CharField(max_length=20, blank=True, null=True)
-    image = models.ImageField(upload_to='images', blank=True, null=True)
+    image = models.ImageField(upload_to='profile_pictures/', blank=True, null=True)
     job = models.CharField(max_length=128, blank=True, null=True)
     about_me = models.TextField(blank=True, null=True)
     address = models.CharField(max_length=256, null=True, blank=True)

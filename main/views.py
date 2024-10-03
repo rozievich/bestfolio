@@ -1,6 +1,5 @@
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
-from django.db.models import Q
 from django.shortcuts import render, redirect, HttpResponse
 from django.urls import reverse
 from httpx import post
@@ -19,7 +18,10 @@ def homepagefunc(request):
 def signupfunc(request):
     if request.POST:
         data = SignUpForm(request.POST, files=request.FILES)
+        print(data.error_messages)
+        print(data.errors)
         if data.is_valid():
+            print("Ishladi")
             data.save()
             return redirect('login')
     return render(request, 'signup.html')
@@ -100,7 +102,7 @@ def updatefunc(request):
         if data.is_valid():
             data.save()
             return redirect('my-profile')
-    return render(request, 'update_profile.html')
+    return render(request, 'update_user.html')
 
 
 # Skill Views

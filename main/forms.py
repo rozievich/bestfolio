@@ -7,7 +7,7 @@ class SignUpForm(UserCreationForm):
     class Meta:
         model = User
         fields = ('first_name', 'last_name', 'username', 'image', 'phone', 'email', 'job', 'password1', 'password2')
-    
+
 
 class UpdateForm(ModelForm):
     class Meta:
@@ -19,12 +19,13 @@ class AddSkillForm(ModelForm):
     class Meta:
         model = Skill
         fields = ('title', 'level')
-    
+
 
 class ServiceForm(ModelForm):
     class Meta:
         model = Service
         fields = ('title', 'description')
+
 
 class AddBlogForm(ModelForm):
     class Meta:
@@ -37,6 +38,7 @@ class AddPortfolioForm(ModelForm):
         model = Portfolio
         fields = ('image', 'title', 'category', 'description', 'company', 'project_url')
 
+
 class UpdateBlogForm(ModelForm):
     class Meta:
         model = Blog
@@ -47,7 +49,7 @@ class StatisticForm(ModelForm):
     class Meta:
         model = Statistic
         fields = ('year', 'total_client', 'won')
-        
+
 
 class PartnerCommentForm(ModelForm):
     class Meta:
